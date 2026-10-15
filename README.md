@@ -4,11 +4,10 @@
 **Smart IoT Touchless & Eco-Friendly Flush System**
 
 
-Sistem flush toilet otomatis berbasis Arduino yang tidak perlu disentuh, tidak bergantung pada ingatan pengguna, dan hanya memakai air sesuai kebutuhan.
+Sistem flush toilet otomatis berbasis Tinkercard yang tidak perlu disentuh, tidak bergantung pada ingatan pengguna, dan hanya memakai air sesuai kebutuhan.
 Proyek ini kami buat untuk kelengkapan pada lomba Hackathon dengan subtema Healthcare & Sustainability.
 
 | No-Touch Technology |·| Smart Dual-Flush  |·| Real-Time Telemetry |
-
 
 
 **Daftar Isi:**
@@ -21,10 +20,12 @@ Proyek ini kami buat untuk kelengkapan pada lomba Hackathon dengan subtema Healt
 7.  Parameter Penting
 8.  Cara Mencoba
 9.  Keputusan Desain
-10. Struktur Repositori
-11. Transparansi Penggunaan AI
-12. Rencana Pengembangan
-13. Tim
+10. Prototype Monitoring Dashboard dan Desain UI/UX
+11. Simulasi Visual dengan Blender
+12. Struktur Repositori
+13. Transparansi Penggunaan AI
+14. Rencana Pengembangan
+15. Tim
 
 
 
@@ -32,7 +33,9 @@ Proyek ini kami buat untuk kelengkapan pada lomba Hackathon dengan subtema Healt
 
 
 PureFlush mengubah kloset biasa menjadi kloset pintar. Sensor ultrasonik mengenali kapan pengguna datang dan kapan pengguna pergi. Begitu pengguna pergi, servo menggerakkan mekanisme flush secara otomatis. Lama pemakaian ikut dihitung, sehingga sistem bisa memilih bilasan ringan atau bilasan penuh.
-Semua dibangun dari komponen Arduino yang murah dan mudah dicari, supaya siapa pun bisa merakit ulang, mencoba, dan mengembangkannya.
+Semua dibangun dari komponen Tinkercard yang murah dan mudah dicari, supaya siapa pun bisa merakit ulang, mencoba, dan mengembangkannya.
+<br>
+
 
 **PENYELESAIAN MASALAH**
 
@@ -44,7 +47,7 @@ Kami mulai dari pengamatan sederhana tentang toilet umum. Ada lima masalah yang 
 4. Kontaminasi silang lewat tombol flush. Tombol flush konvensional disentuh ratusan orang setiap hari, dan biasanya tepat setelah mereka selesai dari toilet. Tombol itu menjadi salah satu titik penularan kuman yang paling sering terlewat.<br>
 5. Pemborosan air bersih. Kloset biasa mengeluarkan volume air yang sama untuk semua orang, entah dipakai sebentar atau lama. Kalau dikalikan jumlah toilet umum yang ada, air yang terbuang tidak sedikit.
 
-
+   
 **SOLUSI: PureFlush**
 
 
@@ -64,14 +67,13 @@ kami rancang untuk menjawab kelima masalah itu sekaligus dengan satu perangkat:<
 1. Sepenuhnya nirsentuh. Sensor HC-SR04 membaca jarak pengguna. Sistem aktif saat pengguna mendekat dan menyiram saat pengguna pergi. Fitur ini sangat membantu lansia dan siapa pun yang mudah lupa.<br>
 2. Dual-flush cerdas. Lama pemakaian dihitung dengan millis(), lalu sistem memilih mode:<br>-Light Flush: pemakaian kurang dari 5 detik. Servo bergerak 45° selama 0,8 detik. Lebih hemat air.<br>-Full Flush: pemakaian 5 detik atau lebih. Servo bergerak 90° selama 1,5 detik. Untuk pembersihan maksimal.<br>
 4. Umpan balik audio dan visual. LED hijau berarti toilet kosong dan siap dipakai. LED merah berarti toilet sedang terisi. Piezo buzzer memberi tanda suara saat pengguna terdeteksi dan saat siklus selesai.<br>
-5. Respons cepat. Sensor dibaca setiap 50 ms dengan debounce, jadi pembacaan stabil dan tidak ada jeda yang mengganggu antrean.
+5. Respons cepat. Sensor dibaca setiap 50 ms dengan debounce, jadi pembacaan stabil dan tidak ada jeda yang mengganggu antrean.<br>
 
 
 **CARA KERJA**
 
 
 Alurnya bisa dibaca seperti berikut:
-<br>
 ```text
 Standby (LED hijau)
       |
@@ -96,7 +98,7 @@ Servo kembali ke posisi awal + buzzer berbunyi 2x
       v
 Kembali ke Standby (LED hijau)
 ```
-<br>
+
 Penjelasan langkah demi langkah:<br>
 1. Standby. LED hijau menyala. Toilet kosong dan siap dipakai.<br>
 2. Pengguna masuk. Sensor mendeteksi objek pada jarak kurang dari 60 cm. LED berubah merah, buzzer berbunyi sekali, dan sistem mulai menghitung durasi pemakaian.<br>
@@ -121,7 +123,6 @@ Penjelasan langkah demi langkah:<br>
 
 
 Angka-angka ini adalah hasil pengaturan dan pengujian kami:
-<br>
 | Parameter | Nilai |
 | :--- | :--- |
 | Jarak deteksi pengguna masuk | kurang dari 60 cm |
@@ -134,18 +135,27 @@ Angka-angka ini adalah hasil pengaturan dan pengujian kami:
 | Buzzer saat siklus selesai | 2 kali bunyi |
 
 
+
 **CARA MENCOBA**  
 
 
-cara untuk menjalankan PureFlush.<br>
-Simulasi di Tinkercad Circuits:
+Ada 2 cara untuk menjalankan PureFlush.<br>
+Opsi 1 :Simulasi di Tinkercad Circuits:
 1. Buka proyek simulasi kami: [https://www.tinkercad.com/things/gdXYBfPZ1yo/editel?sharecode=3zNu7Fzt8Dk4edv7y1MHWk7AnnNuNrqM6WB0kIh0FmI] 
 2. Klik Start Simulation.
 3. Geser objek pada sensor ultrasonik untuk meniru pengguna yang mendekat dan menjauh.
 4. Perhatikan LED, buzzer, dan gerakan servo.
-5. Coba dua skenario:
---> Dekati sensor, tunggu kurang dari 5 detik, lalu jauhkan. Servo akan bergerak 45° (Light Flush).
+5. Coba dua skenario:<br>
+-->Dekati sensor, tunggu kurang dari 5 detik, lalu jauhkan. Servo akan bergerak 45° (Light Flush). <br>
 -->Dekati sensor, tunggu 5 detik atau lebih, lalu jauhkan. Servo akan bergerak 90° (Full Flush).
+
+<br>
+Opsi 2: Perangkat fisik
+1. Siapkan semua komponen pada tabel di atas.
+2. Rangkai sesuai skema proyek (pin yang dipakai tertulis di dalam file pureflush.ino).
+3. Buka pureflush.ino di Arduino IDE.
+4. Pilih board Arduino Uno dan port yang sesuai, lalu klik Upload.
+5. Pasang servo pada mekanisme flush, lalu uji dengan mendekat dan menjauh dari sensor.
 
 
 **KEPUTUSAN DESAIN**
@@ -156,7 +166,47 @@ Beberapa pilihan yang kami ambil, beserta alasannya:
 2. Durasi dihitung dengan millis(). Dengan millis(), kami bisa mengukur lama pemakaian tanpa membekukan program, sehingga sensor dan indikator tetap bisa bekerja. <br>
 3. Debounce dan sampling 50 ms. Sensor ultrasonik kadang memberi pembacaan yang melompat-lompat. Debounce dan interval pembacaan yang teratur membuat respons lebih stabil dan tidak salah memicu flush. <br>
 4. Resistor 220 Ω pada setiap LED. Untuk membatasi arus agar LED dan pin Arduino tetap aman. <br>
-5. Dua mode flush dengan sudut servo berbeda. Sudut 45° dan 90° memberi dua tingkat bukaan, sehingga volume air yang keluar berbeda sesuai kebutuhan. <br>
+5. Dua mode flush dengan sudut servo berbeda. Sudut 45° dan 90° memberi dua tingkat bukaan, sehingga volume air yang keluar berbeda sesuai kebutuhan.
+<br>
+
+
+**PTOTOTYPE MONITORING DASHBOARD & DESAIN UI/UX**
+
+
+PureFlush tidak berhenti di perangkatnya. Data dari toilet baru berguna kalau ada yang bisa membacanya, jadi kami juga membuat prototype sistem monitoring untuk petugas kebersihan.
+<br>
+Apa yang ditampilkan: <br> -Status setiap bilik. Petugas bisa melihat sekilas bilik mana yang kosong, terisi, atau baru saja disiram.<br>-Peringatan kebersihan. Tanda untuk petugas ketika sebuah bilik perlu dicek.<br>-Riwayat sanitasi. Catatan siram setiap bilik, sehingga perawatan bisa dijadwalkan berdasarkan data, bukan perkiraan.
+
+
+
+**DESAIN UI/UX FIGMA**
+
+
+Alur aplikasi dirancang untuk petugas di lapangan: layout status bilik, peringatan kotor, dan riwayat sanitasi.<br>
+Tautan prototype Figma: [https://www.figma.com/design/XAgwu8DsyMqVzQ8RR0HTgP/Untitled?node-id=0-1&t=Xxv1CKnet949ISPV-1]  <br>
+
+
+
+**DASHBOARD WEB**
+
+
+Desain di Figma kami wujudkan menjadi dashboard yang bisa dijalankan.
+Coba langsung : [ https://pureflash.netlify.app ] 
+| Bagian | Teknologi |
+| :--- | :---|
+| Tampilan dan logika | HTML, CSS, dan JavaScript |
+| Penyimpanan data | [isi: Firebase, Supabase, atau data contoh di dalam kode] |
+| Folder kode | dashboard/ |
+
+
+
+
+
+**SIMULASI VISUAL DENGAN BLENDER**
+
+
+Supaya orang yang melihat proyek ini langsung paham situasi pemakaiannya, kami membuat animasi 3D di Blender yang menunjukkan alurnya: orang masuk ke toilet, menggunakannya, lalu pergi, dan PureFlush menyiram sendiri.
+<br>
 
    
 **STRUKTUR REPOSITORI**
@@ -164,9 +214,20 @@ Beberapa pilihan yang kami ambil, beserta alasannya:
 
 ```
 PureFlush/
-├── pureflush.ino   
-└── README.md        
+├── pureflush.ino          
+├── dashboard/              
+│   ├── index.html
+│   ├── login.html
+│   ├── login.js
+│   ├── main.html
+│   ├── main.js
+│   └── style.css
+├── docs/
+│   └── blender/            
+└── README.md                     
 ```
+
+
 
 **TRANSPARAN PENGGUNAAN AI**
 
@@ -181,18 +242,18 @@ GEMINI, CLAUDE, CANVA, VIGMA, CHAT GPT <br>
 
 Versi sekarang yang kami kembangan secara mandiri di satu perangkat. Langkah berikutnya: <br>
 1. Telemetri ke cloud. Menambahkan modul Wi-Fi seperti ESP32 untuk mengirim data pemakaian harian ke dashboard pusat. Pengelola gedung bisa memantau kondisi toilet dan menjadwalkan perawatan secara real-time. <br>
-2. Uji di lingkungan nyata. Mencoba di mal, stasiun, kampus, rumah sakit, dan gedung perkantoran pintar (Smart Building), lalu menyempurnakan berdasarkan hasil di lapangan. <br>
+2. Uji di lingkungan nyata. Mencoba di mal, stasiun, kampus, rumah sakit, dan gedung perkantoran pintar (Smart Building), lalu menyempurnakan berdasarkan hasil di lapangan.
 
-  
+
+   
 **TIM**
-
-
 [ PLANET CELUP'T ]
 <br>
 1. DENOK DWI HIDAYATI  <br>
-2. JOFAN HANDIKA  <br>
+2. JOFAN HANDIKA ADYAKSA  <br>
 3. EKA WIDIASTUTI   <br>
 4. PYPYT R KHASANAH   <br>
-
-
+<br>
+<br>
+Dibuat dengan semangat untuk sanitasi publik yang lebih bersih, lebih sehat, dan lebih hemat air.
 
