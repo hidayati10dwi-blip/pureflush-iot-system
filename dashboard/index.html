@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>PureFlush</title>
+<noscript><meta http-equiv="refresh" content="0; url=login.html"></noscript>
+</head>
+<body>
+<!-- Pintu masuk: buka file ini. Sudah login -> main.html, belum -> login.html -->
+<script>
+try { location.replace(sessionStorage.getItem('pureflush_user') || localStorage.getItem('pureflush_user') ? 'main.html' : 'login.html'); }
+catch (e) { location.replace('login.html'); }
+</script>
+<p>Memuat… <a href="login.html">Klik di sini jika tidak berpindah.</a></p>
+</body>
+</html>

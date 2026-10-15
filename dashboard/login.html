@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masuk – PureFlush</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="lgp">
+<!-- Latar dibuat dari kode (tanpa file gambar) -->
+<div class="lg-art" aria-hidden="true"></div>
+<div class="lg-deco" aria-hidden="true">— Teknologi untuk Fasilitas Publik yang Lebih Baik</div>
+
+<main class="lg-main">
+  <header class="lg-logo">
+    <svg width="58" height="74" viewBox="0 0 62 78" aria-hidden="true">
+      <defs><linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5fd0ff"/><stop offset="1" stop-color="#0a86d8"/></linearGradient></defs>
+      <path d="M31 3C45 22 58 38 58 52a27 27 0 0 1-54 0C4 38 17 22 31 3z" fill="url(#dg)"/>
+      <path d="M20 50c0 8 4 14 11 16" stroke="#fff" stroke-opacity=".7" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </svg>
+    <div>
+      <div class="lg-wm">PureFlush</div>
+      <div class="lg-sub">Smart Toilet Monitoring System</div>
+    </div>
+  </header>
+
+  <section class="lg-hero">
+    <h1><span class="h1a">Toilet Bersih,</span><br>Lingkungan<br>Lebih Sehat</h1>
+    <ul class="lg-feat">
+      <li><i><svg viewBox="0 0 48 48" width="44" height="44" fill="none" stroke="#2b7f8c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 8h20v12H14z"/><path d="M10 20h28c0 8-4 14-10 15v5H20v-5c-6-1-10-7-10-15z"/></svg></i>Monitoring<br>Status Bilik</li>
+      <li><i><svg viewBox="0 0 48 48" width="44" height="44"><rect x="8" y="10" width="32" height="28" rx="3" fill="#fff" stroke="#9db6c4"/><rect x="13" y="24" width="6" height="11" fill="#2fa84f"/><rect x="21" y="16" width="6" height="19" fill="#e03a3a"/><rect x="29" y="20" width="6" height="15" fill="#2a6fd6"/></svg></i>Laporan<br>Sanitasi</li>
+      <li><i><svg viewBox="0 0 48 48" width="44" height="44"><path d="M24 6l15 5v12c0 10-7 16-15 19C16 39 9 33 9 23V11z" fill="#e8594d" stroke="#8a8f98" stroke-width="2"/><path d="M24 6v36" stroke="#fff" stroke-opacity=".55" stroke-width="2"/></svg></i>Lebih Bersih<br>&amp; Aman</li>
+    </ul>
+  </section>
+
+  <div class="lg-right">
+    <small class="lg-tag">Teknologi untuk Fasilitas Publik yang Lebih Baik</small>
+    <form class="lg-card" id="lf" novalidate>
+      <h2>Selamat Datang <span class="em" aria-hidden="true">👋</span></h2>
+      <p class="lg-hint">Silakan masuk untuk mengakses dashboard monitoring PureFlush</p>
+
+      <label>Username
+        <span class="field"><span class="em" aria-hidden="true">👤</span><input id="u" autocomplete="username" placeholder="Masukkan username"></span>
+      </label>
+      <label>Password
+        <span class="field"><span class="em" aria-hidden="true">🔒</span><input id="pw" type="password" autocomplete="current-password" placeholder="Masukkan password"><button type="button" id="eye" aria-label="Tampilkan password"><span class="em" aria-hidden="true">👁️</span></button></span>
+      </label>
+      <label class="chk"><input type="checkbox" id="rm" checked> Ingat saya</label>
+
+      <div class="err" id="er" role="alert"></div>
+      <button class="btn pri wide" type="submit">Masuk →</button>
+
+      <div class="foot">Sistem Monitoring Toilet Pintar<b>PureFlush</b></div>
+    </form>
+  </div>
+
+  <div class="lg-live">
+    <div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12a7 7 0 0 1 7 7M5 5a14 14 0 0 1 14 14"/><circle cx="6" cy="18" r="1.6" fill="#fff"/></svg></div>
+    <div>
+      <b>Indikator Bilik IoT Live</b>
+      <div class="pills"><span class="pill p-g">Bilik 1 • Hijau</span><span class="pill p-y">Bilik 2 • Kuning</span><span class="pill p-r">Bilik 3 • Merah</span></div>
+    </div>
+  </div>
+</main>
+<script src="login.js"></script>
+</body>
+</html>
