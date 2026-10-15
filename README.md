@@ -101,7 +101,7 @@ Penjelasan langkah demi langkah:<br>
 1. Standby. LED hijau menyala. Toilet kosong dan siap dipakai.<br>
 2. Pengguna masuk. Sensor mendeteksi objek pada jarak kurang dari 60 cm. LED berubah merah, buzzer berbunyi sekali, dan sistem mulai menghitung durasi pemakaian.<br>
 3. Pengguna pergi. Saat jarak melebihi 80 cm, sistem menghentikan hitungan dan memilih jenis flush berdasarkan durasi tadi. Servo lalu bergerak ke 45° atau 90°.<br>
-4. Selesai. Servo kembali ke posisi awal, buzzer berbunyi dua kali, dan LED hijau menyala lagi untuk pengguna berikutnya.
+4. Selesai. Servo kembali ke posisi awal, buzzer berbunyi dua kali, dan LED hijau menyala lagi untuk pengguna berikutnya.<br>
 
 
 **KOMPONEN YANG DIGUNAKAN:**
@@ -117,7 +117,7 @@ Penjelasan langkah demi langkah:<br>
 | Piezo buzzer | Penanda suara | 
 
 
-**PARAMETER PENTING ** 
+**PARAMETER PENTING** 
 
 
 Angka-angka ini adalah hasil pengaturan dan pengujian kami:
@@ -139,7 +139,7 @@ Angka-angka ini adalah hasil pengaturan dan pengujian kami:
 
 cara untuk menjalankan PureFlush.<br>
 Simulasi di Tinkercad Circuits:
-1. Buka proyek simulasi kami: [tempel tautan simulasi Tinkercad di sini] 
+1. Buka proyek simulasi kami: [https://www.tinkercad.com/things/gdXYBfPZ1yo/editel?sharecode=3zNu7Fzt8Dk4edv7y1MHWk7AnnNuNrqM6WB0kIh0FmI] 
 2. Klik Start Simulation.
 3. Geser objek pada sensor ultrasonik untuk meniru pengguna yang mendekat dan menjauh.
 4. Perhatikan LED, buzzer, dan gerakan servo.
@@ -172,7 +172,7 @@ PureFlush/
 
 
 Dibantu AI:
-GEMINI, CLAUDE, CANVA, VIGMA, CHAT GPT
+GEMINI, CLAUDE, CANVA, VIGMA, CHAT GPT <br>
 (alasanya karena memudahkan dan gratis untuk mahasiswa)
 
 
